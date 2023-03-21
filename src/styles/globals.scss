@@ -1,0 +1,224 @@
+
+@font-face {
+    font-family: 'Yekan Bakh';
+    src: url('/fonts/YekanBakh-Fat.eot');
+    src: local('/fonts/YekanBakh-Fat'),
+        url('/fonts/YekanBakh-Fat.eot?#iefix') format('embedded-opentype'),
+        url('/fonts/YekanBakh-Fat.woff2') format('woff2'),
+        url('/fonts/YekanBakh-Fat.woff') format('woff'),
+        url('/fonts/YekanBakh-Fat.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Yekan Bakh ';
+    src: url('/fonts/YekanBakh-Heavy.eot');
+    src: local('/fonts/YekanBakh-Heavy'),
+        url('/fonts/YekanBakh-Heavy.eot?#iefix') format('embedded-opentype'),
+        url('/fonts/YekanBakh-Heavy.woff2') format('woff2'),
+        url('/fonts/YekanBakh-Heavy.woff') format('woff'),
+        url('/fonts/YekanBakh-Heavy.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+
+
+
+@font-face {
+    font-family: 'Yekan Bakh';
+    src: url('/fonts/YekanBakh-Bold.eot');
+    src: local('/fonts/YekanBakh-Bold'),
+        url('/fonts/YekanBakh-Bold.eot?#iefix') format('embedded-opentype'),
+        url('/fonts/YekanBakh-Bold.woff2') format('woff2'),
+        url('/fonts/YekanBakh-Bold.woff') format('woff'),
+        url('/fonts/YekanBakh-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Yekan Bakh';
+    src: url('/fonts/YekanBakh-Medium.eot');
+    src: local('/fonts/YekanBakh-Medium'),
+        url('/fonts/YekanBakh-Medium.eot?#iefix') format('embedded-opentype'),
+        url('/fonts/YekanBakh-Medium.woff2') format('woff2'),
+        url('/fonts/YekanBakh-Medium.woff') format('woff'),
+        url('/fonts/YekanBakh-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+@font-face {
+    font-family: 'Yekan Bakh';
+    src: url('/fonts/YekanBakh-Regular.eot');
+    src: local('/fonts/YekanBakh-Regular'),
+        url('/fonts/YekanBakh-Regular.eot?#iefix') format('embedded-opentype'),
+        url('/fonts/YekanBakh-Regular.woff2') format('woff2'),
+        url('/fonts/YekanBakh-Regular.woff') format('woff'),
+        url('/fonts/YekanBakh-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Yekan Bakh';
+    src: url('/fonts/YekanBakh-Light.eot');
+    src: local('/fonts/YekanBakh-Light'),
+        url('/fonts/YekanBakh-Light.eot?#iefix') format('embedded-opentype'),
+        url('/fonts/YekanBakh-Light.woff2') format('woff2'),
+        url('/fonts/YekanBakh-Light.woff') format('woff'),
+        url('/fonts/YekanBakh-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Yekan Bakh';
+    src: url('/fonts/YekanBakh-Thin.eot');
+    src: local('/fonts/YekanBakh-Thin'),
+        url('/fonts/YekanBakh-Thin.eot?#iefix') format('embedded-opentype'),
+        url('/fonts/YekanBakh-Thin.woff2') format('woff2'),
+        url('/fonts/YekanBakh-Thin.woff') format('woff'),
+        url('/fonts/YekanBakh-Thin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+a{
+    text-decoration: none;
+}
+
+.img-overlay {
+  
+        position: absolute; 
+        bottom: 0; 
+        height: 100%;
+        width: 100%;
+        background: linear-gradient(306deg, rgba(7,3,73,1) 0%, rgba(0,212,255,0) 100%);
+        z-index: 10;
+        transition: .5s ease;
+        opacity: 0;
+        
+      
+}
+
+.line-clamp-1{
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 1; /* number of lines to show */
+                line-clamp: 1; 
+        -webkit-box-orient: vertical;
+}
+.line-clamp-2{
+
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2; /* number of lines to show */
+                line-clamp: 2; 
+        -webkit-box-orient: vertical;
+
+}
+.commentsSwiper{
+    .swiper {
+        width: 100%;
+        height: 100%;
+        padding-left: 30px;
+      }
+       .swiper-slide {
+        text-align: center ;
+        font-size: 18px;
+        background: #fff;
+      
+        /* Center slide text vertically */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      
+       .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+ 
+      .swiper-pagination {
+        left: 0px !important;
+        right:auto !important;
+       
+       .swiper-pagination-bullet {
+         background-color:transparent;
+         border : 3px solid;
+         height:12px !important;
+         width:12px !important;
+         border-color:#ec6c20 !important;
+         transition:all ease .5s
+ 
+        
+       }
+       .swiper-pagination-bullet-active {
+         background-color:#ec6c20 !important;
+         height:25px !important;
+         border-radius:15px !important
+     }
+      }
+
+}
+.bestSellersSwiper {
+    
+    .swiper {
+       width: 100%;
+       height: 100%;
+       padding-bottom:60px;
+       
+     }
+      .swiper-slide {
+      
+     
+       /* Center slide text vertically */
+       display: flex;
+       justify-content: center;
+       align-items: center;
+     }
+     
+      .swiper-slide img {
+       display: block;
+       width: 100%;
+       height: 100%;
+       object-fit: cover;
+     }
+
+     .swiper-pagination {
+      
+      .swiper-pagination-bullet {
+        background-color:transparent;
+        border : 3px solid;
+        height:12px !important;
+        width:12px !important;
+        border-color:#ec6c20 !important;
+        transition:all ease .5s
+
+       
+      }
+      .swiper-pagination-bullet-active {
+        background-color:#ec6c20 !important;
+        width:25px !important;
+        border-radius:15px !important
+    }
+     }
+   }
+
+
+  
