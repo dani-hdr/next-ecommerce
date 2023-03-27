@@ -1,4 +1,4 @@
-This is a project inspired by this(https://www.behance.net/gallery/125793953/Shahin-Khodro-The-UI-Design-of-Online-Car-Showplace) ui/ux design
+This is a project inspired by [this](https://www.behance.net/gallery/125793953/Shahin-Khodro-The-UI-Design-of-Online-Car-Showplace) ui/ux design
 See the live demo [here](https://next-ecommerce-iihf2dok6-dani-hdr.vercel.app/) and give it a ⭐!
 
 ## Are you hiring?
