@@ -1,7 +1,6 @@
 import {
   Box,
   Button,
-  Chip,
   Divider,
   Paper,
   Stack,
@@ -9,16 +8,8 @@ import {
   Tabs,
   Typography,
 } from "@mui/material";
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
-
-import { SiKia } from "react-icons/si";
-import { CgBmw } from "react-icons/cg";
-import { SiFord } from "react-icons/si";
-import { SiBentley } from "react-icons/si";
-import { SiChevrolet } from "react-icons/si";
-import { TbBrandToyota } from "react-icons/tb";
-import { SiTesla } from "react-icons/si";
 import Image from "next/image";
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -30,8 +21,14 @@ import "swiper/css/pagination";
 // import required modules
 import { Pagination } from "swiper";
 
-import car1 from "../../../public/images/products/car1.png";
+
 import LandingTitle from "../custom/LandingTitle";
+import { toPersianCurrency } from "@/utils/toPersianCurrency";
+import Aos from "aos";
+
+import carData, { car } from '../../__mock__/products'
+import chassisTypesData from '../../__mock__/chassisTypes'
+import Link from "next/link";
 
 const StyledTabs = ({
   value,
@@ -65,76 +62,48 @@ const StyledTabs = ({
         allowScrollButtonsMobile
         aria-label="scrollable auto tabs example"
       >
-        <Tab
-          sx={{ mx: { xs: 1, md: 4 } }}
-          icon={<SiKia fontSize="50px" />}
-          label="Item One"
-        />
-        <Tab
-          sx={{ mx: { xs: 1, md: 4 } }}
-          icon={<CgBmw fontSize="50px" />}
-          label="Item One"
-        />
-        <Tab
-          sx={{ mx: { xs: 1, md: 4 } }}
-          icon={<SiFord fontSize="50px" />}
-          label="Item One"
-        />
-        <Tab
-          sx={{ mx: { xs: 1, md: 4 } }}
-          icon={<SiBentley fontSize="50px" />}
-          label="Item One"
-        />
-        <Tab
-          sx={{ mx: { xs: 1, md: 4 } }}
-          icon={<SiChevrolet fontSize="50px" />}
-          label="Item One"
-        />
-        <Tab
-          sx={{ mx: { xs: 1, md: 4 } }}
-          icon={<TbBrandToyota fontSize="50px" />}
-          label="Item One"
-        />
-        <Tab
-          sx={{ mx: { xs: 1, md: 4 } }}
-          icon={<SiTesla fontSize="50px" />}
-          label="Item One"
-        />
+       {chassisTypesData.map((item,i)=>  <Tab key={item.id}
+          sx={{ mx: { xs: 1, md: 4,fontSize:'1.2rem',fontWeight:'bold' } }}
+          icon={<Image src={item.iconUrl} height={65} width={65} alt={item.name}/>}
+          label={item.name}
+        />)}
+      
       </Tabs>
     </Paper>
   );
 };
 
-const ProductBox = () => {
+const ProductItem = ({car}:{car:car}) => {
   return (
     <Paper
      elevation={2}
       sx={{
-       
+       p:2,
         border: "2px solid #eee",
         '&:hover':{ '& img' : {boxShadow:"-1px 68px 46px -17px rgba(7,3,73,0.45) inset "}}
       }}
     >
       <Stack gap={2} alignItems="center">
-        <Box  sx={{ border: "2px solid #eee", borderRadius: "15px",overflow:'hidden',zIndex:15 }}>
+        <Box  sx={{ border: "2px solid #eee",height:250, borderRadius: "15px",overflow:'hidden',zIndex:15 }}>
           <Image
-            src={car1}
+            src={car.thumbnail}
             width={270}
             height={200}
             style={{ objectFit: "contain",  transition:'all ease .3s' }}
-            alt="car"
+            alt={car.name}
           />
         </Box>
         <Stack gap={2} width="100%">
           <Stack direction="row" justifyContent="space-between">
-            <Typography variant="h6" fontWeight="medium" component="h2">
-              مزدا نیو فیس
+            <Typography variant="h6" fontWeight="bold" component="h2">
+              {car.name}
             </Typography>
             <Button
               color="secondary"
-              sx={{ backgroundColor: (theme) => theme.palette.secondary.light }}
+              
+              sx={{ backgroundColor: (theme) => theme.palette.secondary.light,fontWeight:'bold' }}
             >
-              2020
+              {car.year}
             </Button>
           </Stack>
           <Stack direction="row" justifyContent="space-between">
@@ -150,7 +119,7 @@ const ProductBox = () => {
               fontWeight="medium"
               color="text.primary"
             >
-              مزدا
+              {car.brand}
             </Typography>
           </Stack>
           <Divider />
@@ -164,14 +133,16 @@ const ProductBox = () => {
             </Typography>
             <Typography
               variant="subtitle1"
-              fontWeight="medium"
+              fontWeight="bold"
               color="text.primary"
             >
-              23000000 تومان
+              {toPersianCurrency(car.price)}
             </Typography>
           </Stack>
         </Stack>
         <Button
+         LinkComponent={Link}
+         href={`/products/${car.id}`}
           sx={{ mt: 2 }}
           color="secondary"
           size="large"
@@ -187,15 +158,26 @@ const ProductBox = () => {
 
 const BestSellers = () => {
   const [value, setValue] = useState<number>(0);
+  const [cars,setCars]=useState<car[]>([])
+
   const handleChange = (
     event: React.SyntheticEvent,
     newValue: number
   ): void => {
     setValue(newValue);
   };
+
+  useEffect(()=>{
+      setCars(carData)
+  },[])
+  useEffect(()=>{
+    Aos.init();
+  },[])
+
   return (
-    <Box component="section">
+    <Box component="section" data-aos="fade-down">
       <LandingTitle position="center" title="پرفروش ترین خودروها" />
+      
       <StyledTabs value={value} handleChange={handleChange} />
       <Box className="bestSellersSwiper" sx={{ postion: "relative", mt: 5 }}>
         <Swiper
@@ -221,21 +203,12 @@ const BestSellers = () => {
           modules={[Pagination]}
           className="bestSellersSwiper"
         >
-          <SwiperSlide>
-            <ProductBox />
-          </SwiperSlide>
-          <SwiperSlide>
-            <ProductBox />
-          </SwiperSlide>
-          <SwiperSlide>
-            <ProductBox />
-          </SwiperSlide>
-          <SwiperSlide>
-            <ProductBox />
-          </SwiperSlide>
-          <SwiperSlide>
-            <ProductBox />
-          </SwiperSlide>
+          {cars.map(car=>(
+              <SwiperSlide key={car.id}>
+                 <ProductItem car={car}  />
+              </SwiperSlide>
+          ))}
+         
         </Swiper>
       </Box>
     </Box>

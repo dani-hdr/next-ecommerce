@@ -1,11 +1,18 @@
 import { Box, Button, Stack, Typography } from "@mui/material";
+import Aos from "aos";
 import Image from "next/image";
+import { useEffect } from "react";
 
 import { FiPhoneCall } from "react-icons/fi";
 
 const Intro = () => {
+
+  useEffect(()=>{
+    Aos.init();
+  },[])
   return (
-    <Box component="section">
+    <Box component="section" 
+    >
       <Stack
         direction={{ xs: "column-reverse", md: "row" }}
         flexWrap="wrap-reverse"
@@ -13,16 +20,16 @@ const Intro = () => {
         alignItems="center"
         gap={2}
       >
-        <Stack flexBasis="50%" gap={3} alignItems="start">
+        <Stack flexBasis="50%" gap={3} alignItems="start"  data-aos="fade-left">
           <Typography
             variant="h3"
             lineHeight={1.6}
             component="h1"
-            fontWeight="bold"
+            fontWeight="fat"
           >
             شاهین خودرو بزرگ ترین نمایشگاه آنلاین خودرو
           </Typography>
-          <Typography variant="caption" color='text.secondary' fontSize="1.1rem">
+          <Typography variant="caption" fontWeight='regular' color='text.secondary' fontSize="1.1rem">
             لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
             استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در
             ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و
@@ -34,14 +41,14 @@ const Intro = () => {
             size="large"
             sx={{ boxShadow: (theme) => theme.shadows[2] }}
             startIcon={
-              <FiPhoneCall style={{ marginLeft: "10px", fontSize: "16px" }} />
+              <FiPhoneCall style={{ fontSize: "16px" }} />
             }
             variant="contained"
           >
             تماس با ما
           </Button>
         </Stack>
-        <Box>
+        <Box  data-aos="fade-right">
           <Box
             sx={{
               backgroundColor: "secondary.main",
@@ -53,6 +60,7 @@ const Intro = () => {
           >
             <Image
               src={"/images/home-intro.png"}
+              priority
               fill
               style={{ objectFit: "contain", right: "-10%", top: "0" }}
               alt="intro"

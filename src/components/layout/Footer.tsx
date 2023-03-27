@@ -137,7 +137,7 @@ const Footer = () => {
       pt={5}
       pb={3}
       color="white"
-      sx={{ borderRadius: "50px 50px 0 0", mt: 5 }}
+      sx={{ borderRadius: "50px 50px 0 0", mt: 'auto' }}
     >
       <Container maxWidth="lg">
         <Grid container columnSpacing={5} rowSpacing={3}>
@@ -176,6 +176,7 @@ const Footer = () => {
                 <Grid item xs={12} sm={6} md={12} lg={6}>
                   <AccessLink title="قیمت روز" link="/" />
                 </Grid>
+                
               </Grid>
             </Stack>
           </Grid>

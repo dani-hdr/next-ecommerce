@@ -10,6 +10,8 @@ import Image from "next/image";
 
 import { IoIosArrowUp } from "react-icons/io";
 import LandingTitle from "../custom/LandingTitle";
+import { useEffect } from "react";
+import Aos from "aos";
 
 const Question = ({summery,details}:{summery:string,details:string}) => {
   return (
@@ -32,8 +34,11 @@ const Question = ({summery,details}:{summery:string,details:string}) => {
   );
 };
 const Questions = () => {
+  useEffect(()=>{
+    Aos.init();
+  },[])
   return (
-    <Box component="section" mt={12}>
+    <Box component="section" mt={12} data-aos="fade-down">
       <Stack
         direction={{ xs: "column", md: "row" }}
         alignItems={{ xs: "center", md: "start" }}
@@ -61,8 +66,9 @@ const Questions = () => {
             }}
           >
             <Question summery="خودروها چگونه قیمت گذاری میشوند ؟" details="لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است"/>
-            <Question summery="خودروها چگونه قیمت گذاری میشوند ؟" details="لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است"/>
-            <Question summery="خودروها چگونه قیمت گذاری میشوند ؟" details="لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است"/>
+            <Question summery="روند خرید خودرو چگونه است ؟" details="لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است"/>
+            <Question summery="آیا خودروهای کارکرده را میتوان از شاهین خودرو فروخت ؟" details="لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است"/>
+            <Question summery="امکان خرید به صورت اقساطی وجود دارد ؟" details="لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است"/>
           </Box>
         </Stack>
       </Stack>

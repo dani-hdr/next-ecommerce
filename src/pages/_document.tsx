@@ -1,11 +1,12 @@
+/* eslint-disable @next/next/no-css-tags */
 import { Html, Head, Main, NextScript } from 'next/document'
 
 export default function Document() {
+  
   return (
     <Html dir="rtl" lang="fa-IR">
-      <Head />
-      
-      <body >
+      <Head/>
+      <body  >
         <Main  />
         <NextScript />
       </body>

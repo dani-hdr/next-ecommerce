@@ -50,7 +50,6 @@ const StyledHeadCell = ({ children }: { children: React.ReactNode }) => {
   return (
     <TableCell
       sx={{ color: (theme) => theme.palette.text.secondary }}
-      align="right"
     >
       {children}
     </TableCell>
@@ -111,7 +110,7 @@ const PriceTable = () => {
     );
   };
   return (
-    <Paper elevation={2}>
+    <Paper elevation={2} sx={{p:2}}>
         <Stack alignItems="center" gap={2}>
           <StyledTabs />
           <TableContainer component={Box}>

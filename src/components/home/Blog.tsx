@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Box, Stack, Grid, Button, Paper, Backdrop } from "@mui/material";
 import { Typography } from "@mui/material";
 import { FiArrowLeft } from "react-icons/fi";
@@ -7,10 +7,12 @@ import Link from "next/link";
 import Image from "next/image";
 import LandingTitle from "../custom/LandingTitle";
 import { GiBlackBridge } from "react-icons/gi";
+import Aos from "aos";
 
 const BlogBox = () => {
+ 
   return (
-    <Link href="/">
+    <Link href="/" >
       <Paper elevation={2} sx={{ p: 3, '&:hover':{'& .img-overlay':{opacity:1}} }}>
         <Stack gap={1}>
           <Stack direction="row" gap={1} color="#D5D6D6">
@@ -59,8 +61,11 @@ const BlogBox = () => {
   );
 };
 const Blog = () => {
+  useEffect(()=>{
+    Aos.init();
+  },[])
   return (
-    <Box component="section">
+    <Box component="section" data-aos="fade-down">
       <Stack gap={4}>
         <Stack
           direction="row"

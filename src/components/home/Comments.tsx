@@ -21,6 +21,8 @@ import { Pagination,Autoplay } from "swiper";
 
 import { FiArrowLeft } from "react-icons/fi";
 import LandingTitle from "../custom/LandingTitle";
+import { useEffect } from "react";
+import Aos from "aos";
 
 const CommentBox = () => {
   return (
@@ -64,8 +66,11 @@ const CommentBox = () => {
   );
 };
 const Comments = () => {
+  useEffect(()=>{
+    Aos.init();
+  },[])
   return (
-    <Box component="section">
+    <Box component="section" data-aos="fade-down">
       <Grid container spacing={2} alignItems="center">
         <Grid item xs={12} md={6}>
           {" "}

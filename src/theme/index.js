@@ -3,13 +3,13 @@ import { createTheme } from "@mui/material";
 const theme = createTheme({
   direction: "rtl",
   shape: {
-    borderRadius: "10px",
+    borderRadius: 10,
   },
   components: {
     MuiPaper: {
       styleOverrides: {
         root: {
-          padding: "15px",
+        
           borderRadius: "15px",
         },
       },
@@ -54,13 +54,13 @@ const theme = createTheme({
   },
   typography: {
    
-    fontFamily: ["Yekan Bakh", "sans-serif"].join(","),
-    fontWeightThin: 100,
+    fontFamily: ["Yekan bakh", "sans-serif"].join(","),
     fontWeightLight: 300,
-    fontWeightRegular: 500,
-    fontWeightMedium: 700,
-    fontWeightBold: 800,
-    fontWeightHeavy: 900,
+    fontWeightRegular: 400,
+    fontWeightMedium: 500,
+    fontWeightBold: 700,
+    fontWeightHeavy: 800,
+    fontWeightFat: 900
   },
 });
 

@@ -1,14 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Box, Stack, Typography, Button, Grid } from "@mui/material";
 import { FiArrowLeft } from "react-icons/fi";
 import Link from "next/link";
 import PriceTable from "./PriceTable";
 import LandingTitle from "../custom/LandingTitle";
+import Aos from "aos";
 
 
 const Prices = () => {
+
+  useEffect(()=>{
+    Aos.init()
+  },[])
+
   return (
-    <Box component="section">
+    <Box component="section" data-aos="fade-down" id="prices">
       <Grid container spacing={2} alignItems="center">
         <Grid item xs={12} lg={4}>
           <Stack flex={1} flexGrow={1} alignItems="start" gap={2}>

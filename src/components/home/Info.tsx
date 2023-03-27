@@ -12,6 +12,8 @@ import { GiMoneyStack } from "react-icons/gi";
 import { AiOutlineTransaction } from "react-icons/ai";
 import { AiOutlineFieldTime } from "react-icons/ai";
 import { IconType } from "react-icons/lib";
+import { useEffect } from "react";
+import AOS from 'aos'
 
 const data : {title:string,description:string,icon:IconType}[] = [
   {
@@ -52,6 +54,7 @@ const InfoBox = ({
         userSelect: "none",
         transition: "all ease .3s",
         py: 5,
+        px:2,
         "&:hover": {
            backgroundColor: (theme) => theme.palette.secondary.light,
           boxShadow: (theme) => theme.shadows[5],
@@ -81,8 +84,13 @@ const InfoBox = ({
   );
 };
 const Info = () => {
+
+  useEffect(()=>{
+    AOS.init()
+  },[])
+  
   return (
-    <Box component="section">
+    <Box component="section" data-aos="fade-down">
       <Grid
         container
         spacing={2}
@@ -93,6 +101,7 @@ const Info = () => {
             title={info.title}
             description={info.description}
             Icon={info.icon}
+            
           />
         </Grid>) )}
       </Grid>

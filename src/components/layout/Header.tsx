@@ -10,18 +10,15 @@ import {
   useMediaQuery,
   TextField,
   InputAdornment,
-  Divider,
   Button,
 } from "@mui/material";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import theme from "./../../theme/index";
 
 import { HiMenuAlt3 } from "react-icons/hi";
 import { RiSearch2Line } from "react-icons/ri";
 import { FiPhoneCall } from "react-icons/fi";
-import logo from '/logo.svg'
-import Image from "next/image";
 interface MobileMenuProps {
   isOpen: boolean;
   toggle: () => void;
@@ -34,10 +31,9 @@ interface DesktopMenuProps {
 
 const MenuItems = [
   { title: "خانه", link: "/" },
-  { title: "خرید خودرو", link: "/about-us" },
-  { title: "قیمت روز", link: "/contact-us" },
-  { title: "بلاگ", link: "/contact-us" },
-  { title: " درباره ما", link: "/contact-us" },
+  { title: "خرید خودرو", link: "/products" },
+  { title: "بلاگ", link: "/blog" },
+  { title: " درباره ما", link: "/about-us" },
 ];
 
 const MobileMenu = ({ isOpen, toggle, MenuItems }: MobileMenuProps) => {
@@ -57,7 +53,7 @@ const MobileMenu = ({ isOpen, toggle, MenuItems }: MobileMenuProps) => {
           position: "fixed",
           p: 3,
           top: 0,
-          right: isOpen ? 0 : -500,
+          left: isOpen ? 0 : -500,
           transition: "ease all .2s",
         }}
       >
@@ -83,9 +79,7 @@ const DesktopMenu = ({ MenuItems }: DesktopMenuProps) => {
       sx={{
         display: "flex",
         gap: 4,
-        flexGrow:1,
-        marginRight:{sm:5}
-        
+        flexGrow: 1,
       }}
     >
       {MenuItems.map((item, i) => (
@@ -108,11 +102,11 @@ const DesktopMenu = ({ MenuItems }: DesktopMenuProps) => {
 const SearchInput = () => {
   return (
     <TextField
-      sx={{ flex: 1, width: "100%",'& input':{py:'11px'} }}
+      sx={{ flex: 1, width: "100%", "& input": { py: "11px" } }}
       InputProps={{
         endAdornment: (
-          <InputAdornment position="start">
-            <RiSearch2Line style={{ marginInline: "10px" }} />
+          <InputAdornment position="end">
+            <RiSearch2Line />
           </InputAdornment>
         ),
       }}
@@ -124,33 +118,58 @@ const Header = () => {
   const isMd = useMediaQuery(theme.breakpoints.up("md"));
   const isSm = useMediaQuery(theme.breakpoints.up("sm"));
   const [isOpen, setIsOpen] = useState<Boolean>(false);
-
+  const [isSticky, setIsSticky] = useState<boolean>(false);
   const handleToggleMenu = (): void => {
     setIsOpen(!isOpen);
   };
 
+  const handleScroll = () => {
+    if (window.pageYOffset > 80) {
+      setIsSticky(true);
+    } else {
+      setIsSticky(false);
+    }
+  };
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   return (
     <AppBar
-      position="static"
-      color="transparent"
-      sx={{ boxShadow: "none", mt: 3,mb:6 }}
+      position={isSticky ? "sticky" : "static"}
+      sx={{width:'100%', boxShadow : isSticky ? "" : "none", mb: 6, borderRadius: "0px",bgcolor: isSticky ? "white" :"transparent", py: 2,transition:'all 0.3s ease-in-out',top:isSticky ? 0 : '-100px' }}
       component="header"
     >
       <Container maxWidth="lg">
         <Stack
           direction="row"
-          flexWrap='wrap'
+          flexWrap="wrap"
           justifyContent="space-between"
-          
+          spacing={2}
           alignItems="center"
         >
           <IconButton
             onClick={handleToggleMenu}
-            sx={{ display: { sm: "none" },position:{xs:'sticky',md:'flex'},top:5 }}
+            sx={{
+              display: { sm: "none" },
+              position: { xs: "sticky", md: "flex" },
+              top: 5,
+            }}
           >
             <HiMenuAlt3 />
           </IconButton>
-          <Typography variant="h4" color="text.primary" fontWeight='bold' sx={{textDecoration:'none'}} component={Link} href='/'>AutoTrader</Typography>
+          <Typography
+            variant="h4"
+            color="text.primary"
+            fontWeight="fat"
+            sx={{ textDecoration: "none", mr: { sm: 4 } }}
+            component={Link}
+            href="/"
+          >
+            لوگو
+          </Typography>
 
           {isSm ? (
             <DesktopMenu MenuItems={MenuItems} />
@@ -161,29 +180,19 @@ const Header = () => {
               toggle={handleToggleMenu}
             />
           )}
-          <Stack
-           
-            flexGrow={1}
-            direction="row"
-            gap={2}
-            alignItems="center"
-          >
-            
+          <Stack flexGrow={1} direction="row" gap={2} alignItems="center">
             <SearchInput />
             <Button
-             LinkComponent='a'
-             href="tel:09361480815"
+              LinkComponent="a"
+              href="tel:09361480815"
               size="large"
-              startIcon={
-                <FiPhoneCall style={{ marginLeft: "10px", fontSize: "16px" }} />
-              }
+              startIcon={<FiPhoneCall style={{ fontSize: "16px" }} />}
               variant="contained"
             >
               تماس با ما
             </Button>
           </Stack>
         </Stack>
-      
       </Container>
     </AppBar>
   );

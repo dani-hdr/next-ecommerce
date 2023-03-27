@@ -1,4 +1,4 @@
-import { Container } from '@mui/material'
+import { Box, Container, Stack } from '@mui/material'
 import React from 'react'
 import Header from '@/components/layout/Header'
 import Footer from './Footer'
@@ -8,15 +8,13 @@ interface Props {
 }
 const Layout = ({children} : Props) => {
   return (
-   <>
+   <Stack minHeight='100vh' >
    <Header/>
-   <main>
-    <Container maxWidth='lg'>
+   <Box component='main' mb={10}>
     {children}
-    </Container>
-   </main>
-   <Footer/>
-   </>
+   </Box>
+   <Footer />
+   </Stack>
   )
 }
 
