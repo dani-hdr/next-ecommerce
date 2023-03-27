@@ -13,32 +13,33 @@ import useLoading from "@/hooks/useLoading";
 const yekan = localFont({
   src: [
     {
-      path: '../../public/fonts/YekanBakh-Fat.woff2',
+      path: '../../public/fonts/YekanBakh-Fat.ttf',
       weight: '900',
       style: 'normal',
     },
+    
     {
-      path: '../../public/fonts/YekanBakh-Heavy.woff2',
+      path: '../../public/fonts/YekanBakh-Heavy.ttf',
       weight: '800',
       style: 'normal',
     },
     {
-      path: '../../public/fonts/YekanBakh-Bold.woff2',
+      path: '../../public/fonts/YekanBakh-Bold.ttf',
       weight: '700',
       style: 'normal',
     },
     {
-      path: '../../public/fonts/YekanBakh-Medium.woff2',
+      path: '../../public/fonts/YekanBakh-Medium.ttf',
       weight: '500',
       style: 'normal',
     },
     {
-      path: '../../public/fonts/YekanBakh-Regular.woff2',
+      path: '../../public/fonts/YekanBakh-Regular.ttf',
       weight: '400',
       style: 'normal',
     },
     {
-      path: '../../public/fonts/YekanBakh-Light.woff2',
+      path: '../../public/fonts/YekanBakh-Light.ttf',
       weight: '300',
       style: 'normal',
     },
