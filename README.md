@@ -1,3 +1,9 @@
+This is a project inspired by this(https://www.behance.net/gallery/125793953/Shahin-Khodro-The-UI-Design-of-Online-Car-Showplace) ui/ux design
+See the live demo [here](https://next-ecommerce-iihf2dok6-dani-hdr.vercel.app/) and give it a ⭐!
+
+## Are you hiring?
+I'm looking for an entry level job. If you've any opportunity, please let me know. 🙏
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
