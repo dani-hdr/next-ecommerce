@@ -10,42 +10,42 @@ import { prefixer } from 'stylis';
 import localFont from 'next/font/local'
 import 'aos/dist/aos.css';
 import useLoading from "@/hooks/useLoading";
-const yekan = localFont({
-  src: [
-    {
-      path: '../../public/fonts/YekanBakh-Fat.ttf',
-      weight: '900',
-      style: 'normal',
-    },
+// const yekan = localFont({
+//   src: [
+//     {
+//       path: '../../public/fonts/YekanBakh-Fat.ttf',
+//       weight: '900',
+//       style: 'normal',
+//     },
     
-    {
-      path: '../../public/fonts/YekanBakh-Heavy.ttf',
-      weight: '800',
-      style: 'normal',
-    },
-    {
-      path: '../../public/fonts/YekanBakh-Bold.ttf',
-      weight: '700',
-      style: 'normal',
-    },
-    {
-      path: '../../public/fonts/YekanBakh-Medium.ttf',
-      weight: '500',
-      style: 'normal',
-    },
-    {
-      path: '../../public/fonts/YekanBakh-Regular.ttf',
-      weight: '400',
-      style: 'normal',
-    },
-    {
-      path: '../../public/fonts/YekanBakh-Light.ttf',
-      weight: '300',
-      style: 'normal',
-    },
+//     {
+//       path: '../../public/fonts/YekanBakh-Heavy.ttf',
+//       weight: '800',
+//       style: 'normal',
+//     },
+//     {
+//       path: '../../public/fonts/YekanBakh-Bold.ttf',
+//       weight: '700',
+//       style: 'normal',
+//     },
+//     {
+//       path: '../../public/fonts/YekanBakh-Medium.ttf',
+//       weight: '500',
+//       style: 'normal',
+//     },
+//     {
+//       path: '../../public/fonts/YekanBakh-Regular.ttf',
+//       weight: '400',
+//       style: 'normal',
+//     },
+//     {
+//       path: '../../public/fonts/YekanBakh-Light.ttf',
+//       weight: '300',
+//       style: 'normal',
+//     },
    
-  ],
-})
+//   ],
+// })
 export default function App({ Component, pageProps }: AppProps) {
   const isLoading = useLoading();
   const cacheRtl = createCache({
@@ -57,12 +57,7 @@ export default function App({ Component, pageProps }: AppProps) {
     <ThemeProvider theme={theme}>
       <CssBaseline/>
       {isLoading && <LinearProgress sx={{position:'sticky',top:0,left:0,width:'100%'}} />}
-      <Layout>
-      <style jsx global>{`
-        html {
-          font-family: ${yekan.style.fontFamily};
-        }
-      `}</style>   
+      <Layout> 
         <Component {...pageProps} />{" "}
       </Layout>
     </ThemeProvider>

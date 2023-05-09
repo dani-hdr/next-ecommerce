@@ -54,7 +54,7 @@ const theme = createTheme({
   },
   typography: {
    
-    fontFamily: ["Yekan bakh", "sans-serif"].join(","),
+    fontFamily: ["yekan", "sans-serif"].join(","),
     fontWeightLight: 300,
     fontWeightRegular: 400,
     fontWeightMedium: 500,
